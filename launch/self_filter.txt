@@ -1,0 +1,70 @@
+<launch>
+	<node pkg="robot_self_filter" type="self_filter" name="self_filter" output="screen">
+        <rosparam>
+            self_see_links:
+            - name: base_link
+              padding: 0.03
+              scale: 1.0
+            - name: r_wheel_link
+              padding: 0.03
+              scale: 1.0
+            - name: l_wheel_link
+              padding: 0.03
+              scale: 1.0
+            - name: torso_lift_link
+              padding: 0.03
+              scale: 1.0
+            - name: head_pan_link
+              padding: 0.03
+              scale: 1.0
+            - name: head_tilt_link
+              padding: 0.03
+              scale: 1.0
+            - name: shoulder_pan_link
+              padding: 0.03
+              scale: 1.0
+            - name: shoulder_lift_link
+              padding: 0.03
+              scale: 1.0
+            - name: upperarm_roll_link
+              padding: 0.03
+              scale: 1.0
+            - name: elbow_flex_link
+              padding: 0.03
+              scale: 1.0
+            - name: forearm_roll_link
+              padding: 0.03
+              scale: 1.0
+            - name: wrist_flex_link
+              padding: 0.03
+              scale: 1.0
+            - name: wrist_roll_link
+              padding: 0.03
+              scale: 1.0
+            - name: gripper_link
+              padding: 0.03
+              scale: 1.0
+            - name: r_gripper_finger_link
+              padding: 0.03
+              scale: 1.0
+            - name: l_gripper_finger_link
+              padding: 0.03
+              scale: 1.0
+            - name: bellows_link
+              padding: 0.03
+              scale: 1.0
+            - name: bellows_link2
+              padding: 0.03
+              scale: 1.0
+            - name: estop_link
+              padding: 0.03
+              scale: 1.0
+            - name: laser_link
+              padding: 0.03
+              scale: 1.0
+            - name: torso_fixed_link
+              padding: 0.03
+              scale: 1.0
+        </rosparam>
+    </node>
+</launch>
