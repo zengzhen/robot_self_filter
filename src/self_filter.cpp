@@ -112,7 +112,7 @@ private:
     }
     else
     {
-      ROS_DEBUG("Valid frames were passed in. We'll filter them.");
+      ROS_INFO("Valid frames were passed in. We'll filter them.");
       sub_.subscribe(root_handle_, "/head_camera/depth_downsample/points", max_queue_size_);
       mn_.reset(new tf::MessageFilter<sensor_msgs::PointCloud2>(sub_, tf_, "", max_queue_size_));
       mn_->setTargetFrames(frames_);
@@ -136,7 +136,7 @@ private:
 
   void cloudCallback(const sensor_msgs::PointCloud2::ConstPtr &cloud2)
   {
-    ROS_DEBUG("Got pointcloud that is %f seconds old", (ros::Time::now() - cloud2->header.stamp).toSec());
+    ROS_INFO("Got pointcloud that is %f seconds old", (ros::Time::now() - cloud2->header.stamp).toSec());
     std::vector<int> mask;
     ros::WallTime tm = ros::WallTime::now();
 
@@ -165,11 +165,13 @@ private:
       out2.header.stamp = cloud2->header.stamp;
       input_size = cloud->points.size();
       output_size = out.points.size();
+
+      ROS_INFO("Self filter: reduced %d points to %d points", input_size, output_size);
     }
 
     double sec = (ros::WallTime::now() - tm).toSec();
     pointCloudPublisher_.publish(out2);
-    ROS_DEBUG("Self filter: reduced %d points to %d points in %f seconds", input_size, output_size, sec);
+    ROS_INFO("Self filter: reduced %d points to %d points in %f seconds", input_size, output_size, sec);
 
   }
 

@@ -91,7 +91,7 @@ public:
 		mk.color.g = 0.04;
 		mk.color.b = 0.04;
 
-		mk.lifetime = ros::Duration(10);
+		// mk.lifetime = ros::Duration(10);
 
 		vmPub_.publish(mk);
     }
@@ -100,7 +100,7 @@ public:
     {
         pcl::PointCloud<pcl::PointXYZ> in;
 
-		in.header.stamp = ros::Time::now().toNSec();
+		pcl_conversions::toPCL(ros::Time::now(), in.header.stamp);
 		in.header.frame_id = "base_link";
 
 		const unsigned int N = 500000;

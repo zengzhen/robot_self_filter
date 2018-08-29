@@ -14,12 +14,6 @@
             - name: torso_lift_link
               padding: 0.03
               scale: 1.0
-            - name: head_pan_link
-              padding: 0.03
-              scale: 1.0
-            - name: head_tilt_link
-              padding: 0.03
-              scale: 1.0
             - name: shoulder_pan_link
               padding: 0.03
               scale: 1.0
